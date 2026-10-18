@@ -582,7 +582,7 @@ cc_prebuilt_library_shared {
                 "libcamera_metadata",
                 "libchilog",
                 "libcom.qti.chinodeutils",
-                "libmpbase",
+                "libmpbase_vendor",
                 "libarcsoft_portrait_super_night_raw",
                 "libarcsoft_portrait_super_night_se_raw",
                 "libarcsoft_super_night_raw",
@@ -650,7 +650,7 @@ cc_prebuilt_library_shared {
                 "libcamera_metadata",
                 "libcom.qti.chinodeutils",
                 "libcutils",
-                "libmpbase",
+                "libmpbase_vendor",
                 "libarcsoft_portrait_distortion_correction",
                 "liblog",
                 "libc++",
@@ -717,7 +717,7 @@ cc_prebuilt_library_shared {
                 "libcutils",
                 "libutils",
                 "libchilog",
-                "libmpbase",
+                "libmpbase_vendor",
                 "libhidlbase",
                 "libhidltransport",
                 "android.frameworks.sensorservice@1.0",
@@ -5254,7 +5254,7 @@ cc_prebuilt_library_shared {
             ],
             shared_libs: [
                 "libOpenCL",
-                "libmpbase",
+                "libmpbase_vendor",
                 "liblog",
                 "libc",
                 "libm",
@@ -5283,7 +5283,7 @@ cc_prebuilt_library_shared {
                 "libcamera_metadata",
                 "libchilog",
                 "libcom.qti.chinodeutils",
-                "libmpbase",
+                "libmpbase_vendor",
                 "libdualcam_video_optical_zoom",
                 "liblog",
                 "libc++",
@@ -5338,7 +5338,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libarcsoft_hdr_detection.so",
             ],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "liblog",
                 "libc",
                 "libm",
@@ -5363,7 +5363,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libarcsoft_high_dynamic_range.so",
             ],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "liblog",
                 "libc",
                 "libm",
@@ -5388,7 +5388,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libarcsoft_portrait_distortion_correction.so",
             ],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "libc",
                 "liblog",
                 "libm",
@@ -5413,7 +5413,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libarcsoft_portrait_super_night_raw.so",
             ],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "libcdsprpc",
                 "libOpenCL",
                 "liblog",
@@ -5440,7 +5440,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libarcsoft_portrait_super_night_se_raw.so",
             ],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "libcdsprpc",
                 "libarcsoft_qnnhtp",
                 "libOpenCL",
@@ -5493,7 +5493,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libarcsoft_super_night_raw.so",
             ],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "libcdsprpc",
                 "libarcsoft_qnnhtp",
                 "libOpenCL",
@@ -5521,7 +5521,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libarcsoft_super_night_se_raw.so",
             ],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "libarcsoft_qnnhtp",
                 "libOpenCL",
                 "libcdsprpc",
@@ -6156,7 +6156,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libdualcam_optical_zoom_control.so",
             ],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "liblog",
                 "libc",
                 "libm",
@@ -6181,7 +6181,7 @@ cc_prebuilt_library_shared {
                 "proprietary/vendor/lib64/libdualcam_video_optical_zoom.so",
             ],
             shared_libs: [
-                "libmpbase",
+                "libmpbase_vendor",
                 "libOpenCL",
                 "liblog",
                 "libc",
@@ -6908,27 +6908,6 @@ cc_prebuilt_library_shared {
                 "libc",
                 "libm",
                 "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    prefer: true,
-    soc_specific: true,
-}
-
-cc_prebuilt_library_shared {
-    name: "libmpbase",
-    owner: "motorola",
-    strip: {
-        none: true,
-    },
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/lib64/libmpbase.so",
-            ],
-            shared_libs: [
-                "libc",
             ],
         },
     },
@@ -7875,39 +7854,11 @@ android_app_import {
     product_specific: true,
 }
 
-android_app_import {
-    name: "MotorolaSettingsProvider",
-    owner: "motorola",
-    apk: "proprietary/system_ext/priv-app/MotorolaSettingsProvider/MotorolaSettingsProvider.apk",
-    certificate: "platform",
-    dex_preopt: {
-        enabled: false,
-    },
-    privileged: true,
-    system_ext_specific: true,
-}
-
 dex_import {
     name: "com.motorola.motosignature",
     owner: "motorola",
     jars: [
         "proprietary/system/framework/com.motorola.motosignature.jar",
-    ],
-}
-
-dex_import {
-    name: "moto-core_services",
-    owner: "motorola",
-    jars: [
-        "proprietary/system/framework/moto-core_services.jar",
-    ],
-}
-
-dex_import {
-    name: "moto-settings",
-    owner: "motorola",
-    jars: [
-        "proprietary/system/framework/moto-settings.jar",
     ],
 }
 
